@@ -19,6 +19,8 @@ public class Product {
 
     private String image;
 
+    private String manufacturer;
+
     public Long getProduct_serial() {
         return product_serial;
     }
