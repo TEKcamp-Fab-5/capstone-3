@@ -1,4 +1,3 @@
-
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -65,3 +64,4 @@ yarn.lock
 grooming.md
 retrospective.md
 standup.md
+bin/
