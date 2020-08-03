@@ -21,5 +21,24 @@ public class OrderDetail {
     @JoinColumn(name = "account_serial")
     private Account account;
 
+    public Product getProduct() {
+        return product;
+    }
 
+    public Order getOrder() {
+        return order;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public OrderDetail(Product product, Order order, Account account) {
+        this.product = product;
+        this.order = order;
+        this.account = account;
+    }
+
+    public OrderDetail() {
+    }
 }
