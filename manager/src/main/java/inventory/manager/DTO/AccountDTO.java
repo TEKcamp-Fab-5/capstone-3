@@ -1,4 +1,4 @@
 package inventory.manager.DTO;
 
-public class AdminDTO {
+public class AccountDTO {
 }

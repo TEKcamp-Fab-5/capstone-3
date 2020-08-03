@@ -1,4 +1,4 @@
 package inventory.manager.Model;
 
-public class Admin {
+public class CustomerInfo {
 }

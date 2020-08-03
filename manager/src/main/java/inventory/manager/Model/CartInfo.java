@@ -1,4 +1,4 @@
 package inventory.manager.Model;
 
-public class Order {
+public class CartInfo {
 }

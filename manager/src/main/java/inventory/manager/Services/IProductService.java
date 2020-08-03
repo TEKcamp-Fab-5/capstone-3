@@ -1,4 +1,4 @@
 package inventory.manager.Services;
 
-public interface IProductController {
+public interface IProductService {
 }
