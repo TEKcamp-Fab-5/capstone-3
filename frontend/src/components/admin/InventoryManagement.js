@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
+import "../../styles/InventoryManagement.css";
 
 // this will be an authenticated component
 export default function InventoryManagement(props) {
@@ -26,33 +27,13 @@ export default function InventoryManagement(props) {
     };
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignContent: "center",
-                justifyContent: "center",
-                marginBottom: "2rem"
-            }}
-        >
+        <div className="container">
             <div>
                 <h2>Inventory Management</h2>
             </div>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignContent: "center",
-                    justifyContent: "center"
-                }}
-            >
-                <FormGroup
-                    style={{
-                        margin: "auto",
-                        padding: "2rem"
-                    }}
-                >
-                    <Paper style={{ padding: "2rem" }} elevation={3}>
+            <div className="formContainer">
+                <FormGroup className="formGroup">
+                    <Paper className="inventoryPaper" elevation={3}>
                         <TextField
                             label="Product Name"
                             name="name"
