@@ -1,17 +1,18 @@
-package inventory.manager.DTO;
+package inventory.manager.Request;
 
-public class ProductDTO {
+public class ProductRequest {
 
+    private Long id;
     private String productSerial;
     private String name;
     private String manufacture;
     private double price;
     private int quantity;
 
-    public ProductDTO() {
+    public ProductRequest() {
     }
-    public ProductDTO(String productSerial, String name, String manufacture, double price, int quantity) {
-
+    public ProductRequest(Long id, String productSerial, String name, String manufacture, double price, int quantity) {
+        this.id = id;
         this.productSerial = productSerial;
         this.name = name;
         this.manufacture = manufacture;
@@ -19,7 +20,9 @@ public class ProductDTO {
         this.quantity = quantity;
     }
 
-
+    public Long getId() {
+        return id;
+    }
     public String getProductSerial() {
         return productSerial;
     }
