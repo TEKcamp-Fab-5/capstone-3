@@ -13,6 +13,7 @@ import NotFound from "./components/NotFound";
 import Checkout from "./components/Checkout";
 
 import inventory from "./inventory";
+import InventoryManagement from "./components/admin/InventoryManagement";
 
 const AppTheme = createMuiTheme({
     palette: {
@@ -250,6 +251,16 @@ function App() {
                                         consumerContactNumber
                                     }
                                     handleInventory={handleInventory}
+                                />
+                            )}
+                        />
+                        {/*This will be an authenticated route for the admin user*/}
+                        <Route
+                            path="/inventory"
+                            render={() => (
+                                <InventoryManagement
+                                    products={products}
+                                    setProducts={setProducts}
                                 />
                             )}
                         />
