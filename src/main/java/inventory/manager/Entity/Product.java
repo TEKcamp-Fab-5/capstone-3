@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long product_serial;
+    private Long productSerial;
 
     @Column(nullable = false)
     private Long sku;
@@ -22,7 +22,7 @@ public class Product {
     private String category;
 
     @Column(nullable = false)
-    private int quantity_in_inventory;
+    private int quantityInInventory;
 
     @Column(nullable = false)
     private String image;
@@ -30,8 +30,8 @@ public class Product {
     @Column(nullable = false)
     private String manufacturer;
 
-    public Long getProduct_serial() {
-        return product_serial;
+    public Long getProductSerial() {
+        return productSerial;
     }
 
     public String getName() {
@@ -58,12 +58,12 @@ public class Product {
         this.category = category;
     }
 
-    public int getQuantity_in_inventory() {
-        return quantity_in_inventory;
+    public int getQuantityInInventory() {
+        return quantityInInventory;
     }
 
-    public void setQuantity_in_inventory(int quantity_in_inventory) {
-        this.quantity_in_inventory = quantity_in_inventory;
+    public void setQuantityInInventory(int quantity_in_inventory) {
+        this.quantityInInventory = quantity_in_inventory;
     }
 
     public String getImage() {
@@ -90,13 +90,13 @@ public class Product {
         this.sku = sku;
     }
 
-    public Product(Long sku, String name, double price, String category, int quantity_in_inventory, String image,
+    public Product(Long sku, String name, double price, String category, int quantityInInventory, String image,
                    String manufacturer) {
         this.sku = sku;
         this.name = name;
         this.price = price;
         this.category = category;
-        this.quantity_in_inventory = quantity_in_inventory;
+        this.quantityInInventory = quantityInInventory;
         this.image = image;
         this.manufacturer = manufacturer;
     }

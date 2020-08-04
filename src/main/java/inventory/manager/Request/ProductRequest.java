@@ -3,19 +3,26 @@ package inventory.manager.Request;
 public class ProductRequest {
 
     private Long productSerial;
+    private Long sku;
     private String name;
-    private String manufacture;
+    private String manufacturer;
+    private String category;
     private double price;
-    private int quantity;
+    private int quantityInInventory;
+    private String image;
 
     public ProductRequest() {
     }
-    public ProductRequest(Long productSerial, String name, String manufacture, double price, int quantity) {
+
+    public ProductRequest(Long productSerial, Long sku, String name, String manufacturer, String category, double price, int quantityInInventory, String image) {
         this.productSerial = productSerial;
+        this.sku = sku;
         this.name = name;
-        this.manufacture = manufacture;
+        this.manufacturer = manufacturer;
+        this.category = category;
         this.price = price;
-        this.quantity = quantity;
+        this.quantityInInventory = quantityInInventory;
+        this.image = image;
     }
 
     public Long getProductSerial() {
@@ -26,6 +33,14 @@ public class ProductRequest {
         this.productSerial = productSerial;
     }
 
+    public Long getSku() {
+        return sku;
+    }
+
+    public void setSku(Long sku) {
+        this.sku = sku;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,12 +49,20 @@ public class ProductRequest {
         this.name = name;
     }
 
-    public String getManufacture() {
-        return manufacture;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setManufacture(String manufacture) {
-        this.manufacture = manufacture;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public double getPrice() {
@@ -50,11 +73,19 @@ public class ProductRequest {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQuantityInInventory() {
+        return quantityInInventory;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantityInInventory(int quantityInInventory) {
+        this.quantityInInventory = quantityInInventory;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

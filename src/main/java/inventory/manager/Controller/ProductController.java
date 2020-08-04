@@ -7,7 +7,6 @@ import inventory.manager.Request.ProductRequest;
 import inventory.manager.Response.ProductResponse;
 import inventory.manager.Services.IProductService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

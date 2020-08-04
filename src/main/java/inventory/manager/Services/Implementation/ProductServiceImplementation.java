@@ -5,7 +5,6 @@ import inventory.manager.DAO.IProductRepository;
 import inventory.manager.DTO.ProductDTO;
 import inventory.manager.Entity.Product;
 import inventory.manager.Request.ProductRequest;
-import inventory.manager.Response.ProductResponse;
 import inventory.manager.Services.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -50,6 +49,14 @@ public class ProductServiceImplementation implements IProductService {
     @Override
     public ProductDTO updateProduct(ProductRequest productRequest, ProductDTO queriedProductDTO) {
         //5
+        queriedProductDTO.setSku(productRequest.getSku());
+        queriedProductDTO.setName(productRequest.getName());
+        queriedProductDTO.setManufacturer(productRequest.getManufacturer());
+        queriedProductDTO.setCategory(productRequest.getCategory());
+        queriedProductDTO.setPrice(productRequest.getPrice());
+        queriedProductDTO.setQuantityInInventory(productRequest.getQuantityInInventory());
+        queriedProductDTO.setImage(productRequest.getImage());
+
         ProductDTO returnValue = new ProductDTO();
         BeanUtils.copyProperties(queriedProductDTO, returnValue);
 
