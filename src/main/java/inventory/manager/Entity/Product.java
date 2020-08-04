@@ -9,16 +9,25 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long product_serial;
 
+    @Column(nullable = false)
+    private Long sku;
+
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private double price;
 
+    @Column(nullable = false)
     private String category;
 
+    @Column(nullable = false)
     private int quantity_in_inventory;
 
+    @Column(nullable = false)
     private String image;
 
+    @Column(nullable = false)
     private String manufacturer;
 
     public Long getProduct_serial() {
@@ -65,12 +74,31 @@ public class Product {
         this.image = image;
     }
 
-    public Product(String name, double price, String category, int quantity_in_inventory, String image) {
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public Long getSku() {
+        return sku;
+    }
+
+    public void setSku(Long sku) {
+        this.sku = sku;
+    }
+
+    public Product(Long sku, String name, double price, String category, int quantity_in_inventory, String image,
+                   String manufacturer) {
+        this.sku = sku;
         this.name = name;
         this.price = price;
         this.category = category;
         this.quantity_in_inventory = quantity_in_inventory;
         this.image = image;
+        this.manufacturer = manufacturer;
     }
 
     public Product() {

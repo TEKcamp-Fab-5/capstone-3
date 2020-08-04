@@ -10,12 +10,16 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long account_serial;
 
+    @Column(nullable = false)
     private String first_name;
 
+    @Column(nullable = false)
     private String last_name;
 
+    @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private String password;
 
     public Long getAccount_serial() {

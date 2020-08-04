@@ -11,14 +11,17 @@ public class OrderDetail {
 
     @ManyToOne
     @JoinColumn(name = "product_serial")
+    @Column(nullable = false)
     private Product product;
 
     @OneToMany
     @JoinColumn(name = "transaction_serial")
+    @Column(nullable = false)
     private Order order;
 
     @OneToMany
     @JoinColumn(name = "account_serial")
+    @Column(nullable = false)
     private Account account;
 
     public Product getProduct() {

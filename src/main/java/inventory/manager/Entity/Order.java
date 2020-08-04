@@ -12,12 +12,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long transaction_serial;
 
+    @Column(nullable = false)
     private String order_date;
 
+    @Column(nullable = false)
     private double sub_total;
 
+    @Column(nullable = false)
     private double tax;
 
+    @Column(nullable = false)
     private double total;
 
     public Long getTransaction_serial() {
