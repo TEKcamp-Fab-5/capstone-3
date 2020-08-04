@@ -1,45 +1,37 @@
 package inventory.manager.Entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-public class Product implements Serializable {
-    private static final long serialVersionUID = -7811855693938330414L;
-
+@Table(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long productSerial;
 
-  //  @Column(nullable = false)
-    private String productSerial;
-  // @Column(nullable = false)
+    @Column(nullable = false)
+    private Long sku;
+
+    @Column(nullable = false)
     private String name;
-  //  @Column(nullable = false)
-    private String manufacture;
-  //  @Column(nullable = false)
+
+    @Column(nullable = false)
     private double price;
-//   @Column(nullable = false)
-    private int quantity;
 
-    public Product() {
-    }
+    @Column(nullable = false)
+    private String category;
 
-    public Product(Long id, String productSerial, String name, String manufacture, double price, int quantity) {
-        this.id = id;
-        this.productSerial = productSerial;
-        this.name = name;
-        this.manufacture = manufacture;
-        this.price = price;
-        this.quantity = quantity;
-    }
+    @Column(nullable = false)
+    private int quantityInInventory;
 
-    public String getProductSerial() {
+    @Column(nullable = false)
+    private String image;
+
+    @Column(nullable = false)
+    private String manufacturer;
+
+    public Long getProductSerial() {
         return productSerial;
-    }
-
-    public void setProductSerial(String productSerial) {
-        this.productSerial = productSerial;
     }
 
     public String getName() {
@@ -50,14 +42,6 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public String getManufacture() {
-        return manufacture;
-    }
-
-    public void setManufacture(String manufacture) {
-        this.manufacture = manufacture;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -66,11 +50,57 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getCategory() {
+        return category;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getQuantityInInventory() {
+        return quantityInInventory;
+    }
+
+    public void setQuantityInInventory(int quantity_in_inventory) {
+        this.quantityInInventory = quantity_in_inventory;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public Long getSku() {
+        return sku;
+    }
+
+    public void setSku(Long sku) {
+        this.sku = sku;
+    }
+
+    public Product(Long sku, String name, double price, String category, int quantityInInventory, String image,
+                   String manufacturer) {
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.quantityInInventory = quantityInInventory;
+        this.image = image;
+        this.manufacturer = manufacturer;
+    }
+
+    public Product() {
     }
 }
