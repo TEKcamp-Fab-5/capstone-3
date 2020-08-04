@@ -35,20 +35,6 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<version>5.3.3.RELEASE</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-			<version>2.3.2.RELEASE</version>
-		</dependency>
 
 
 
@@ -57,12 +43,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>42.2.14</version>
-		</dependency>
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.postgresql/postgresql &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.postgresql</groupId>-->
+<!--			<artifactId>postgresql</artifactId>-->
+<!--			<version>42.2.14</version>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -76,45 +62,45 @@
 			</exclusions>
 		</dependency>
 
-		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf</artifactId>
-			<version>3.0.11.RELEASE</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.thymeleaf</groupId>-->
+<!--			<artifactId>thymeleaf</artifactId>-->
+<!--			<version>3.0.11.RELEASE</version>-->
+<!--		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4 -->
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
-			<version>3.0.4.RELEASE</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.thymeleaf.extras</groupId>-->
+<!--			<artifactId>thymeleaf-extras-springsecurity4</artifactId>-->
+<!--			<version>3.0.4.RELEASE</version>-->
+<!--		</dependency>-->
 
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.21</version>
-		</dependency>
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/mysql/mysql-connector-java &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>mysql</groupId>-->
+<!--			<artifactId>mysql-connector-java</artifactId>-->
+<!--			<version>8.0.21</version>-->
+<!--		</dependency>-->
 
-		<!-- https://mvnrepository.com/artifact/commons-validator/commons-validator -->
-		<dependency>
-			<groupId>commons-validator</groupId>
-			<artifactId>commons-validator</artifactId>
-			<version>1.6</version>
-		</dependency>
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/commons-validator/commons-validator &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>commons-validator</groupId>-->
+<!--			<artifactId>commons-validator</artifactId>-->
+<!--			<version>1.6</version>-->
+<!--		</dependency>-->
 
-		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-		</dependency>
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/commons-lang/commons-lang &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>commons-lang</groupId>-->
+<!--			<artifactId>commons-lang</artifactId>-->
+<!--			<version>2.6</version>-->
+<!--		</dependency>-->
 
-		<!-- https://mvnrepository.com/artifact/org.threeten/threetenbp -->
-		<dependency>
-			<groupId>org.threeten</groupId>
-			<artifactId>threetenbp</artifactId>
-			<version>1.4.4</version>
-		</dependency>
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.threeten/threetenbp &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.threeten</groupId>-->
+<!--			<artifactId>threetenbp</artifactId>-->
+<!--			<version>1.4.4</version>-->
+<!--		</dependency>-->
 
 
 

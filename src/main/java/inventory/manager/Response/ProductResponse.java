@@ -1,6 +1,8 @@
-package inventory.manager.DTO;
+package inventory.manager.Response;
 
-public class ProductDTO {
+import javax.persistence.Column;
+
+public class ProductResponse {
 
     private String productSerial;
     private String name;
@@ -8,9 +10,9 @@ public class ProductDTO {
     private double price;
     private int quantity;
 
-    public ProductDTO() {
+    public ProductResponse() {
     }
-    public ProductDTO(String productSerial, String name, String manufacture, double price, int quantity) {
+    public ProductResponse(String productSerial, String name, String manufacture, double price, int quantity) {
 
         this.productSerial = productSerial;
         this.name = name;
