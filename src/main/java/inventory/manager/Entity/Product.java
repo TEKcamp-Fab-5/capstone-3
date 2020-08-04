@@ -1,40 +1,37 @@
 package inventory.manager.Entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-public class Product implements Serializable {
-    private static final long serialVersionUID = -7811855693938330414L;
-
+@Table(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productSerial;
-  // @Column(nullable = false)
+    private Long product_serial;
+
+    @Column(nullable = false)
+    private Long sku;
+
+    @Column(nullable = false)
     private String name;
-  //  @Column(nullable = false)
-    private String manufacture;
-  //  @Column(nullable = false)
+
+    @Column(nullable = false)
     private double price;
-//   @Column(nullable = false)
-    private int quantity;
 
-    public Product() {
-    }
+    @Column(nullable = false)
+    private String category;
 
-    public Product(String name, String manufacture, double price, int quantity) {
-        this.name = name;
-        this.manufacture = manufacture;
-        this.price = price;
-        this.quantity = quantity;
-    }
+    @Column(nullable = false)
+    private int quantity_in_inventory;
 
-    public Long getProductSerial() {
-        return productSerial;
-    }
+    @Column(nullable = false)
+    private String image;
 
-    public void setProductSerial(Long productSerial) {
-        this.productSerial = productSerial;
+    @Column(nullable = false)
+    private String manufacturer;
+
+    public Long getProduct_serial() {
+        return product_serial;
     }
 
     public String getName() {
@@ -45,14 +42,6 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public String getManufacture() {
-        return manufacture;
-    }
-
-    public void setManufacture(String manufacture) {
-        this.manufacture = manufacture;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -61,11 +50,57 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getCategory() {
+        return category;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getQuantity_in_inventory() {
+        return quantity_in_inventory;
+    }
+
+    public void setQuantity_in_inventory(int quantity_in_inventory) {
+        this.quantity_in_inventory = quantity_in_inventory;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public Long getSku() {
+        return sku;
+    }
+
+    public void setSku(Long sku) {
+        this.sku = sku;
+    }
+
+    public Product(Long sku, String name, double price, String category, int quantity_in_inventory, String image,
+                   String manufacturer) {
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.quantity_in_inventory = quantity_in_inventory;
+        this.image = image;
+        this.manufacturer = manufacturer;
+    }
+
+    public Product() {
     }
 }
