@@ -2,7 +2,7 @@ package inventory.manager.DTO;
 
 public class ProductDTO {
 
-    private String productSerial;
+    private Long productSerial;
     private String name;
     private String manufacture;
     private double price;
@@ -10,8 +10,7 @@ public class ProductDTO {
 
     public ProductDTO() {
     }
-    public ProductDTO(String productSerial, String name, String manufacture, double price, int quantity) {
-
+    public ProductDTO(Long productSerial, String name, String manufacture, double price, int quantity) {
         this.productSerial = productSerial;
         this.name = name;
         this.manufacture = manufacture;
@@ -20,11 +19,11 @@ public class ProductDTO {
     }
 
 
-    public String getProductSerial() {
+    public Long getProductSerial() {
         return productSerial;
     }
 
-    public void setProductSerial(String productSerial) {
+    public void setProductSerial(Long productSerial) {
         this.productSerial = productSerial;
     }
 

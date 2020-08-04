@@ -9,10 +9,7 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-  //  @Column(nullable = false)
-    private String productSerial;
+    private Long productSerial;
   // @Column(nullable = false)
     private String name;
   //  @Column(nullable = false)
@@ -25,20 +22,18 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(Long id, String productSerial, String name, String manufacture, double price, int quantity) {
-        this.id = id;
-        this.productSerial = productSerial;
+    public Product(String name, String manufacture, double price, int quantity) {
         this.name = name;
         this.manufacture = manufacture;
         this.price = price;
         this.quantity = quantity;
     }
 
-    public String getProductSerial() {
+    public Long getProductSerial() {
         return productSerial;
     }
 
-    public void setProductSerial(String productSerial) {
+    public void setProductSerial(Long productSerial) {
         this.productSerial = productSerial;
     }
 

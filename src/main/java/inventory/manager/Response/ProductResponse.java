@@ -4,7 +4,7 @@ import javax.persistence.Column;
 
 public class ProductResponse {
 
-    private String productSerial;
+    private Long productSerial;
     private String name;
     private String manufacture;
     private double price;
@@ -12,8 +12,7 @@ public class ProductResponse {
 
     public ProductResponse() {
     }
-    public ProductResponse(String productSerial, String name, String manufacture, double price, int quantity) {
-
+    public ProductResponse(Long productSerial, String name, String manufacture, double price, int quantity) {
         this.productSerial = productSerial;
         this.name = name;
         this.manufacture = manufacture;
@@ -22,11 +21,11 @@ public class ProductResponse {
     }
 
 
-    public String getProductSerial() {
+    public Long getProductSerial() {
         return productSerial;
     }
 
-    public void setProductSerial(String productSerial) {
+    public void setProductSerial(Long productSerial) {
         this.productSerial = productSerial;
     }
 

@@ -2,8 +2,7 @@ package inventory.manager.Request;
 
 public class ProductRequest {
 
-    private Long id;
-    private String productSerial;
+    private Long productSerial;
     private String name;
     private String manufacture;
     private double price;
@@ -11,8 +10,7 @@ public class ProductRequest {
 
     public ProductRequest() {
     }
-    public ProductRequest(Long id, String productSerial, String name, String manufacture, double price, int quantity) {
-        this.id = id;
+    public ProductRequest(Long productSerial, String name, String manufacture, double price, int quantity) {
         this.productSerial = productSerial;
         this.name = name;
         this.manufacture = manufacture;
@@ -20,14 +18,11 @@ public class ProductRequest {
         this.quantity = quantity;
     }
 
-    public Long getId() {
-        return id;
-    }
-    public String getProductSerial() {
+    public Long getProductSerial() {
         return productSerial;
     }
 
-    public void setProductSerial(String productSerial) {
+    public void setProductSerial(Long productSerial) {
         this.productSerial = productSerial;
     }
 
