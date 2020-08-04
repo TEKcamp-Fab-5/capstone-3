@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import InventoryManagement from "./components/admin/InventoryManagement";
 
 ReactDOM.render(
     <React.StrictMode>
