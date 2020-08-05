@@ -2,11 +2,7 @@ import axios from "axios";
 
 class BoutiqueDataService {
     retrieveAllProducts() {
-        return axios.get("http://localhost:8080/products");
-    }
-
-    retrieveProduct(product) {
-        return axios.get(`http://localhost:8080/products/${product.name}`);
+        return axios.get(`http://localhost:8080/products`);
     }
 
     addNewProduct() {
