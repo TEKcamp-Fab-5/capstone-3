@@ -74,12 +74,12 @@
 <!--			<version>3.0.4.RELEASE</version>-->
 <!--		</dependency>-->
 
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/mysql/mysql-connector-java &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>mysql</groupId>-->
-<!--			<artifactId>mysql-connector-java</artifactId>-->
-<!--			<version>8.0.21</version>-->
-<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.21</version>
+		</dependency>
 
 <!--		&lt;!&ndash; https://mvnrepository.com/artifact/commons-validator/commons-validator &ndash;&gt;-->
 <!--		<dependency>-->
