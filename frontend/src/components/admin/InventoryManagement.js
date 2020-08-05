@@ -5,6 +5,8 @@ import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
 import "../../styles/InventoryManagement.css";
 
+import BoutiqueDataService from "../../api/BoutiqueDataService";
+
 // this will be an authenticated component
 export default function InventoryManagement(props) {
     const { products, setProducts } = props;
@@ -21,9 +23,27 @@ export default function InventoryManagement(props) {
 
     const handleAddNewProduct = e => {
         e.preventDefault();
+        newProduct.serialNumber = parseFloat(newProduct.serialNumber);
         newProduct.price = parseFloat(newProduct.price);
         newProduct.name = newProduct.name.replace(/ /g, "-").toLowerCase();
+        newProduct.image = newProduct.image
+            .replace(/fakepath/g, "images")
+            .toLowerCase();
         setProducts([...products, newProduct]);
+
+        if (products.serialNumber == null) {
+            BoutiqueDataService.addNewProduct(newProduct)
+                .then()
+                .catch(error => {
+                    console.log(error);
+                });
+        } else {
+            BoutiqueDataService.updateProduct(products)
+                .then()
+                .catch(error => {
+                    console.log(error);
+                });
+        }
     };
 
     return (
@@ -41,6 +61,12 @@ export default function InventoryManagement(props) {
                         />
                         <br />
                         <TextField
+                            label="Description"
+                            name="description"
+                            onChange={formOnChange}
+                        />
+                        <br />
+                        <TextField
                             label="Serial Number"
                             name="serialNumber"
                             onChange={formOnChange}
@@ -49,12 +75,6 @@ export default function InventoryManagement(props) {
                         <TextField
                             label="Price"
                             name="price"
-                            onChange={formOnChange}
-                        />
-                        <br />
-                        <TextField
-                            label="Product Manufacturer"
-                            name="manufacturer"
                             onChange={formOnChange}
                         />
                         <br />
@@ -69,6 +89,21 @@ export default function InventoryManagement(props) {
                             name="quantity"
                             onChange={formOnChange}
                         />
+                        <br />
+                        <br />
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            component="label"
+                        >
+                            Upload File
+                            <input
+                                type="file"
+                                style={{ display: "none" }}
+                                name="image"
+                                onChange={formOnChange}
+                            />
+                        </Button>
                         <br />
                         <Button
                             variant="contained"
