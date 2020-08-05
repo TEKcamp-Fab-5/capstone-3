@@ -9,6 +9,12 @@ class BoutiqueDataService {
         return axios.get(`http://localhost:8080/products/${product.name}`);
     }
 
+    updateProduct(product) {
+        return axios.get(
+            `http://localhost:8080/products/${product.serialNumber}`
+        );
+    }
+
     addNewProduct() {
         return axios.post("http://localhost:8080/products");
     }
