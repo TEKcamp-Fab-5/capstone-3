@@ -11,5 +11,5 @@ import java.util.Optional;
     public interface IProductRepository extends CrudRepository<Product, Long>, PagingAndSortingRepository<Product, Long>{
 
 
-
+    Product findByProductSerial(Long productSerial);
 }

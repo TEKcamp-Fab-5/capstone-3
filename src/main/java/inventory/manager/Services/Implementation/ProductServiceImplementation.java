@@ -4,6 +4,7 @@ package inventory.manager.Services.Implementation;
 import inventory.manager.DAO.IProductRepository;
 import inventory.manager.DTO.ProductDTO;
 import inventory.manager.Entity.Product;
+import inventory.manager.Request.ProductRequest;
 import inventory.manager.Services.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,42 @@ public class ProductServiceImplementation implements IProductService {
     public List<Product> getProducts() {
         List<Product> returnValue;
         returnValue = (List<Product>) productRepository.findAll();
+
+        return returnValue;
+    }
+
+    @Override
+    public Product getProductBySerial(Long productSerial) {
+        Product returnValue = productRepository.findByProductSerial(productSerial);
+        return returnValue;
+    }
+
+    @Override
+    public ProductDTO updateProduct(ProductRequest productRequest, ProductDTO queriedProductDTO) {
+        if(productRequest.getName()!=null) {
+            queriedProductDTO.setName(productRequest.getName());
+        }
+
+        if(productRequest.getManufacturer()!=null) {
+            queriedProductDTO.setManufacturer(productRequest.getManufacturer());
+        }
+
+        if(productRequest.getCategory()!=null) {
+            queriedProductDTO.setCategory(productRequest.getCategory());
+        }
+
+        if(productRequest.getPrice()!=0) {
+            queriedProductDTO.setPrice(productRequest.getPrice());
+        }
+        if(productRequest.getQuantityInInventory()!=0) {
+            queriedProductDTO.setQuantityInInventory(productRequest.getQuantityInInventory());
+        }
+        if (productRequest.getImage()!=null) {
+            queriedProductDTO.setImage(productRequest.getImage());
+        }
+
+        ProductDTO returnValue = new ProductDTO();
+        BeanUtils.copyProperties(queriedProductDTO, returnValue);
 
         return returnValue;
     }
