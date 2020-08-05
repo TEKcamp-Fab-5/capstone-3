@@ -48,14 +48,27 @@ public class ProductServiceImplementation implements IProductService {
 
     @Override
     public ProductDTO updateProduct(ProductRequest productRequest, ProductDTO queriedProductDTO) {
-        //5
-        queriedProductDTO.setSku(productRequest.getSku());
-        queriedProductDTO.setName(productRequest.getName());
-        queriedProductDTO.setManufacturer(productRequest.getManufacturer());
-        queriedProductDTO.setCategory(productRequest.getCategory());
-        queriedProductDTO.setPrice(productRequest.getPrice());
-        queriedProductDTO.setQuantityInInventory(productRequest.getQuantityInInventory());
-        queriedProductDTO.setImage(productRequest.getImage());
+        if(productRequest.getName()!=null) {
+            queriedProductDTO.setName(productRequest.getName());
+        }
+
+        if(productRequest.getManufacturer()!=null) {
+            queriedProductDTO.setManufacturer(productRequest.getManufacturer());
+        }
+
+        if(productRequest.getCategory()!=null) {
+            queriedProductDTO.setCategory(productRequest.getCategory());
+        }
+
+        if(productRequest.getPrice()!=0) {
+            queriedProductDTO.setPrice(productRequest.getPrice());
+        }
+        if(productRequest.getQuantityInInventory()!=0) {
+            queriedProductDTO.setQuantityInInventory(productRequest.getQuantityInInventory());
+        }
+        if (productRequest.getImage()!=null) {
+            queriedProductDTO.setImage(productRequest.getImage());
+        }
 
         ProductDTO returnValue = new ProductDTO();
         BeanUtils.copyProperties(queriedProductDTO, returnValue);
