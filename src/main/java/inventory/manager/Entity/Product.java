@@ -9,25 +9,25 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productSerial;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private Long sku;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private double price;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String category;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private int quantityInInventory;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String image;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String manufacturer;
 
     public Long getProductSerial() {
