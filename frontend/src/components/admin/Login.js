@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AuthenticationService from "./AuthenticationService";
+import Paper from "@material-ui/core/Paper";
 
 export default function Login(props) {
     const [usernamePassword, setUsernamePassword] = useState({});
@@ -18,10 +18,6 @@ export default function Login(props) {
             usernamePassword.username === "admin" &&
             usernamePassword.password === "password"
         ) {
-            AuthenticationService.registerSuccessfulLogin(
-                usernamePassword.username,
-                usernamePassword.password
-            );
             props.history.push("/inventory");
             setShowSuccessMessage(true);
             setHasLoginFailed(false);

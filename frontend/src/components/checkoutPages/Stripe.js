@@ -8,14 +8,15 @@ export default function Stripe(props) {
         setActiveStep,
         setPaymentSubmitted,
         setShoppingCart,
-        shoppingCart
+        shoppingCart,
+        productQuantity
     } = props;
 
     const handleToken = (token, addresses) => {
         console.log({ token, addresses });
         setActiveStep(activeStep + 1);
         setPaymentSubmitted(true);
-        shoppingCart.map(product => (product.quantity = 1));
+        shoppingCart.map(productQuantity => (productQuantity = 1));
         setShoppingCart([]);
     };
 
