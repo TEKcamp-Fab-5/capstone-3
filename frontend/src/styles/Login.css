@@ -1,0 +1,19 @@
+.loginMain {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 8rem;
+    height: 100%;
+    width: 14rem;
+    padding: 2rem;
+}
+
+.loginPaper {
+    padding: 1.5rem;
+}

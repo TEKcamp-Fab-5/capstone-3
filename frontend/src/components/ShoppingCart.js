@@ -16,7 +16,8 @@ export default function ShoppingCart(props) {
         total,
         setTotal,
         totalItems,
-        setTotalItems
+        setTotalItems,
+        productQuantity
     } = props;
 
     // shoppingCart: resolves the totalPrice being reflected before you even get to the shopping cart page
@@ -75,7 +76,7 @@ export default function ShoppingCart(props) {
                                 }
                             >
                                 {[1, 2, 3, 4, 5].map(value =>
-                                    value !== product.quantity ? (
+                                    value !== productQuantity ? (
                                         <option>{value}</option>
                                     ) : (
                                         <option selected>{value}</option>
