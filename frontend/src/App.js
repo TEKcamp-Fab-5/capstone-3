@@ -16,6 +16,7 @@ import inventory from "./inventory";
 import InventoryManagement from "./components/admin/InventoryManagement";
 import BoutiqueDataService from "./api/BoutiqueDataService";
 import Login from "./components/admin/Login";
+import AuthenticatedRoute from "./components/admin/AuthenticatedRoute";
 
 const AppTheme = createMuiTheme({
     palette: {
@@ -277,7 +278,7 @@ function App() {
                         />
                         <Route path="/login" component={Login} />
                         {/*This will be an authenticated route for the admin user*/}
-                        <Route
+                        <AuthenticatedRoute
                             path="/inventory"
                             render={() => (
                                 <InventoryManagement

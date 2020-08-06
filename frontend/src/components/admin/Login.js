@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import AuthenticationService from "./AuthenticationService";
 
-export default function Login() {
+export default function Login(props) {
     const [usernamePassword, setUsernamePassword] = useState({});
     const [hasLoginFailed, setHasLoginFailed] = useState(false);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -17,6 +18,11 @@ export default function Login() {
             usernamePassword.username === "admin" &&
             usernamePassword.password === "password"
         ) {
+            AuthenticationService.registerSuccessfulLogin(
+                usernamePassword.username,
+                usernamePassword.password
+            );
+            props.history.push("/inventory");
             setShowSuccessMessage(true);
             setHasLoginFailed(false);
             console.log("success");
