@@ -15,8 +15,6 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import "../styles/Navbar.css";
 
-import AuthenticationService from "../components/admin/AuthenticationService";
-
 const useStyles = makeStyles(theme => ({
     grow: {
         flexGrow: 1

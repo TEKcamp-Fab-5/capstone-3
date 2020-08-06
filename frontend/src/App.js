@@ -29,6 +29,7 @@ const AppTheme = createMuiTheme({
 
 function App() {
     const [products, setProducts] = useState([]);
+    const [productQuantity, setProductQuantity] = useState(1);
     const [isProductsLoaded, setIsProductsLoaded] = useState(false);
 
     const [shoppingCart, setShoppingCart] = useState([]);
@@ -108,7 +109,7 @@ function App() {
     // added to cart will then be added to the cart.
     const handleAddingItemsToCart = product => {
         if (shoppingCart.includes(product)) {
-            if (product.quantity < 5) {
+            if (productQuantity < 5) {
                 product.quantity++;
                 setShoppingCart(shoppingCart);
                 setTotalItems(totalItems + product.quantity);
@@ -125,7 +126,7 @@ function App() {
     const handleTotalPrice = () => {
         let newTotal = 0;
         shoppingCart.map(product => {
-            newTotal += product.price * product.quantity;
+            newTotal += product.price * productQuantity;
         });
         setTotal(newTotal.toFixed(2));
     };
@@ -135,17 +136,17 @@ function App() {
     // also runs so that the total price is reflected as well
     const handleChangeQuantity = (productId, product) => {
         let selectedValue = document.getElementById(productId).value;
-        product.quantity = parseInt(selectedValue);
+        setProductQuantity(parseInt(selectedValue));
         setShoppingCart(shoppingCart);
         handleTotalPrice();
     };
 
     // shoppingCart: displays the total products in the shopping cart
-    // shopping cart is mapped and the product.quantity of each product is added to the cartTotal
+    // shopping cart is mapped and the productQuantityof each product is added to the cartTotal
     const handleCartTotalQuantity = () => {
         let cartTotal = 0;
-        shoppingCart.map(product => {
-            cartTotal += product.quantity;
+        shoppingCart.map(() => {
+            cartTotal += productQuantity;
         });
         return cartTotal;
     };
@@ -159,7 +160,7 @@ function App() {
         let soldOutItems = [];
         let cartContainsSoldOutItems = false;
         shoppingCart.map(product => {
-            if (product.quantity > product.availableUnits) {
+            if (productQuantity > product.availableUnits) {
                 soldOutItems.push(product.name);
             } else {
                 product.availableUnits =
@@ -229,6 +230,7 @@ function App() {
                                     setTotal={setTotal}
                                     totalItems={totalItems}
                                     setTotalItems={setTotalItems}
+                                    productQuantity={productQuantity}
                                 />
                             )}
                         />
