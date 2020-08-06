@@ -75,4 +75,10 @@ public class ProductServiceImplementation implements IProductService {
 
         return returnValue;
     }
+
+    @Override
+    public Product getProductBySku(Long sku) {
+        Product returnValue = productRepository.findBySku(sku);
+        return returnValue;
+    }
 }

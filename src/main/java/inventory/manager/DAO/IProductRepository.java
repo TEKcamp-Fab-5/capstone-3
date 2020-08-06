@@ -12,4 +12,6 @@ import java.util.Optional;
 
 
     Product findByProductSerial(Long productSerial);
+
+    Product findBySku(Long sku);
 }

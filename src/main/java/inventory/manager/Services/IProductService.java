@@ -18,4 +18,5 @@ public interface IProductService {
 
     ProductDTO updateProduct(ProductRequest productRequest, ProductDTO queriedProductDTO);
 
+    Product getProductBySku(Long sku);
 }

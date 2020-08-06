@@ -67,7 +67,7 @@ public class ProductController {
     @PutMapping(path = "/updateProduct")
     public ProductResponse updateProduct(@RequestBody ProductRequest productRequest) {
 
-        Product queriedProduct = iProductService.getProductBySerial(productRequest.getProductSerial());
+        Product queriedProduct = iProductService.getProductBySku(productRequest.getSku());
 
         ProductDTO queriedProductDTO = new ProductDTO();
         BeanUtils.copyProperties(queriedProduct, queriedProductDTO);
