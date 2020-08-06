@@ -14,6 +14,7 @@ import Checkout from "./components/Checkout";
 
 import inventory from "./inventory";
 import InventoryManagement from "./components/admin/InventoryManagement";
+import BoutiqueDataService from "./api/BoutiqueDataService";
 
 const AppTheme = createMuiTheme({
     palette: {
@@ -25,7 +26,8 @@ const AppTheme = createMuiTheme({
 });
 
 function App() {
-    const [products, setProducts] = useState(inventory);
+    const [products, setProducts] = useState([]);
+    const [isProductsLoaded, setIsProductsLoaded] = useState(false);
 
     const [shoppingCart, setShoppingCart] = useState([]);
 
@@ -50,6 +52,24 @@ function App() {
             productFilter();
         }
     });
+
+    useEffect(() => {
+        if (!isProductsLoaded) {
+            handleProducts();
+            setIsProductsLoaded(true);
+        }
+    }, [isProductsLoaded]);
+
+    const handleProducts = () => {
+        BoutiqueDataService.retrieveAllProducts()
+            .then(response => {
+                setProducts(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
 
     // search bar: sets the user input value when the input value state variable does not equal the search
     // bar value, this function keeps the inputValue and the searchbar value in sync.

@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import Product from "./Product";
 import Button from "@material-ui/core/Button";
+import BoutiqueDataService from "../api/BoutiqueDataService";
 
 export default function Home(props) {
     const {
