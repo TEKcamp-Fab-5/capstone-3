@@ -44,14 +44,6 @@ public class Product {
     public Product() {
     }
 
-    public Long getProductSerial() {
-        return productSerial;
-    }
-
-    public void setProductSerial(long productSerial) {
-        this.productSerial = productSerial;
-    }
-
     public String getName() {
         return name;
     }

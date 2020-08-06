@@ -48,25 +48,27 @@ public class ProductServiceImplementation implements IProductService {
 
     @Override
     public ProductDTO updateProduct(ProductRequest productRequest, ProductDTO queriedProductDTO) {
-        if(productRequest.getName()!=null) {
+        if (productRequest.getName() != null) {
             queriedProductDTO.setName(productRequest.getName());
         }
 
-        if(productRequest.getManufacturer()!=null) {
+        if (productRequest.getManufacturer() != null) {
             queriedProductDTO.setManufacturer(productRequest.getManufacturer());
         }
 
-        if(productRequest.getCategory()!=null) {
+        if (productRequest.getCategory() != null) {
             queriedProductDTO.setCategory(productRequest.getCategory());
         }
 
-        if(productRequest.getPrice()!=0) {
+        if (productRequest.getPrice() != 0) {
             queriedProductDTO.setPrice(productRequest.getPrice());
         }
-        if(productRequest.getQuantityInInventory()!=0) {
-            queriedProductDTO.setQuantityInInventory(productRequest.getQuantityInInventory());
+        int quantityToIncrementBy = productRequest.getQuantityInInventory();
+        if (quantityToIncrementBy > 0) {
+            int updatedQuantity = queriedProductDTO.getQuantityInInventory() + quantityToIncrementBy;
+            queriedProductDTO.setQuantityInInventory(updatedQuantity);
         }
-        if (productRequest.getImage()!=null) {
+        if (productRequest.getImage() != null) {
             queriedProductDTO.setImage(productRequest.getImage());
         }
 

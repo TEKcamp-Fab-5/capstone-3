@@ -22,7 +22,6 @@ public class ProductControllerTests {
         int updatedQuantity = 3;
 
         Product productToUpdate = new Product();
-        productToUpdate.setProductSerial(productSerial);
         productToUpdate.setSku(sku);
         productToUpdate.setQuantityInInventory(initialQuantity);
 
@@ -32,7 +31,6 @@ public class ProductControllerTests {
         request.setQuantityInInventory(updatedQuantity);
 
         Product updatedProduct = new Product();
-        updatedProduct.setProductSerial(productSerial);
         updatedProduct.setSku(sku);
         updatedProduct.setQuantityInInventory(updatedQuantity);
 
