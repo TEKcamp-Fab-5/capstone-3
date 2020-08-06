@@ -64,7 +64,7 @@ public class ProductServiceImplementation implements IProductService {
             queriedProductDTO.setPrice(productRequest.getPrice());
         }
         if(productRequest.getQuantityInInventory()!=0) {
-            queriedProductDTO.setQuantityInInventory(productRequest.getQuantityInInventory());
+            queriedProductDTO.setQuantityInInventory(productRequest.getQuantityInInventory() + queriedProductDTO.getQuantityInInventory());
         }
         if (productRequest.getImage()!=null) {
             queriedProductDTO.setImage(productRequest.getImage());
