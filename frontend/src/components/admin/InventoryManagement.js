@@ -21,25 +21,56 @@ export default function InventoryManagement(props) {
         setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
     };
 
+    const handleExistingProduct = newProduct => {
+        for (let product of products) {
+            if (
+                product.productSerial &&
+                newProduct.productSerial &&
+                newProduct.productSerial === product.productSerial
+            ) {
+                return true;
+            }
+
+            if (
+                product.name &&
+                newProduct.name &&
+                newProduct.name === product.name
+            ) {
+                return true;
+            }
+        }
+        return false;
+    };
+
     const handleAddNewProduct = e => {
         e.preventDefault();
-        newProduct.serialNumber = parseFloat(newProduct.serialNumber);
+        newProduct.productSerial = parseFloat(newProduct.productSerial);
         newProduct.price = parseFloat(newProduct.price);
+        newProduct.quantityInInventory = parseFloat(
+            newProduct.quantityInInventory
+        );
+        newProduct.sku = parseFloat(newProduct.sku);
         newProduct.name = newProduct.name.replace(/ /g, "-").toLowerCase();
-        newProduct.image = newProduct.image
-            .replace(/fakepath/g, "images")
-            .toLowerCase();
+        newProduct.image = "default-image";
         setProducts([...products, newProduct]);
 
-        if (products.serialNumber == null) {
-            BoutiqueDataService.addNewProduct(newProduct)
-                .then()
+        console.log(newProduct);
+
+        const productExists = handleExistingProduct(newProduct);
+        console.log(handleExistingProduct(newProduct));
+        if (productExists) {
+            BoutiqueDataService.updateProduct(newProduct)
+                .then(res => {
+                    console.log(res, "updated product");
+                })
                 .catch(error => {
                     console.log(error);
                 });
         } else {
-            BoutiqueDataService.updateProduct(products)
-                .then()
+            BoutiqueDataService.addNewProduct(newProduct)
+                .then(res => {
+                    console.log(res, "added product");
+                })
                 .catch(error => {
                     console.log(error);
                 });
@@ -60,15 +91,23 @@ export default function InventoryManagement(props) {
                             onChange={formOnChange}
                         />
                         <br />
+                        <TextField label="Description" name="description" />
+                        <br />
                         <TextField
-                            label="Description"
-                            name="description"
+                            label="Manufacturer"
+                            name="manufacturer"
                             onChange={formOnChange}
                         />
                         <br />
                         <TextField
                             label="Serial Number"
-                            name="serialNumber"
+                            name="productSerial"
+                            onChange={formOnChange}
+                        />
+                        <br />
+                        <TextField
+                            label="SkuNumber"
+                            name="sku"
                             onChange={formOnChange}
                         />
                         <br />
@@ -86,7 +125,7 @@ export default function InventoryManagement(props) {
                         <br />
                         <TextField
                             label="Quantity"
-                            name="quantity"
+                            name="quantityInInventory"
                             onChange={formOnChange}
                         />
                         <br />
@@ -101,7 +140,6 @@ export default function InventoryManagement(props) {
                                 type="file"
                                 style={{ display: "none" }}
                                 name="image"
-                                onChange={formOnChange}
                             />
                         </Button>
                         <br />
@@ -111,7 +149,7 @@ export default function InventoryManagement(props) {
                             onClick={handleAddNewProduct}
                             style={{ marginTop: "2rem" }}
                         >
-                            Add a new product
+                            Add Product
                         </Button>
                     </Paper>
                 </FormGroup>

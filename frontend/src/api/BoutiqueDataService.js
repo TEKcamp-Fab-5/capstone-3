@@ -2,23 +2,31 @@ import axios from "axios";
 
 class BoutiqueDataService {
     retrieveAllProducts() {
-        return axios.get(`http://localhost:8080/products`);
+        return axios.get("http://localhost:8080/products");
     }
 
-    updateProduct(product) {
-        return axios.get(
-            `http://localhost:8080/products/${product.serialNumber}`
+    updateProduct(payload) {
+        return axios.put(
+            "http://localhost:8080/products/updateProduct",
+            payload,
+            {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
         );
     }
 
-    addNewProduct() {
-        return axios.post("http://localhost:8080/products");
+    addNewProduct(payload) {
+        return axios.post("http://localhost:8080/products/", payload, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
     }
 
-    deleteProduct(product) {
-        return axios.delete(
-            `http://localhost:8080/products/${product.serialNumber}`
-        );
+    deleteProduct() {
+        return axios.delete("http://localhost:8080/products/deleteProduct");
     }
 
     addCustomer() {
