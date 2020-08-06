@@ -28,7 +28,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ProductResponse createProduct(@RequestBody ProductRequest productRequest){
+    public ProductResponse createProduct(@RequestBody ProductRequest productRequest) {
         ProductDTO productDTO = new ProductDTO();
         BeanUtils.copyProperties(productRequest, productDTO);
         ProductDTO createdProduct = iProductService.createProduct(productDTO);
@@ -39,19 +39,19 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductResponse> getProducts(){
+    public List<ProductResponse> getProducts() {
         List<Product> productList = iProductService.getProducts();
 
         ArrayList<ProductResponse> returnValue = new ArrayList<>();
 
-        for (Product product : productList){
+        for (Product product : productList) {
             ProductResponse productResponse = new ProductResponse();
             BeanUtils.copyProperties(product, productResponse);
 
             returnValue.add(productResponse);
         }
 
-       return returnValue;
+        return returnValue;
     }
 
     @GetMapping(path = "/serial={productSerial}")
@@ -66,8 +66,6 @@ public class ProductController {
 
     @PutMapping(path = "/updateProduct")
     public ProductResponse updateProduct(@RequestBody ProductRequest productRequest) {
-        //
-        //
         Product queriedProduct = iProductService.getProductBySerial(productRequest.getProductSerial());
 
         ProductDTO queriedProductDTO = new ProductDTO();

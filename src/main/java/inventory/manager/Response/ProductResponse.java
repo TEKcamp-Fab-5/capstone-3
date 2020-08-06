@@ -1,5 +1,7 @@
 package inventory.manager.Response;
 
+import java.util.Objects;
+
 public class ProductResponse {
 
     private Long productSerial;
@@ -87,5 +89,35 @@ public class ProductResponse {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!this.getClass().equals(obj.getClass())) {
+            return false;
+        }
+        ProductResponse comparator = (ProductResponse) obj;
+        if (Objects.equals(this.getProductSerial(), comparator.getProductSerial()) &&
+                Objects.equals(this.getSku(), comparator.getSku())) {
+            return true;
+        }
+        boolean equals = isEquals(this.getCategory(), comparator.getCategory());
+        equals &= isEquals(this.getManufacturer(), comparator.getManufacturer());
+        equals &= isEquals(this.getName(), comparator.getName());
+        equals &= isEquals(this.getPrice(), comparator.getPrice());
+        equals &= isEquals(this.getProductSerial(), comparator.getProductSerial());
+        equals &= isEquals(this.getSku(), comparator.getSku());
+        return equals;
+    }
+
+    private boolean isEquals(double thisDouble, double comparatorDouble) {
+        return thisDouble == comparatorDouble;
+    }
+
+    private boolean isEquals(String thisString, String comparatorString) {
+        return thisString.equals(comparatorString);
     }
 }
