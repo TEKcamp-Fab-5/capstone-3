@@ -91,6 +91,18 @@ public class ProductResponse {
         this.image = image;
     }
 
+    private boolean isEquals(double thisDouble, double comparatorDouble) {
+        return thisDouble == comparatorDouble;
+    }
+
+    private boolean isEquals(Long thisLong, Long comparatorLong) {
+        return Objects.equals(thisLong, comparatorLong);
+    }
+
+    private boolean isEquals(String thisString, String comparatorString) {
+        return Objects.equals(thisString, comparatorString);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -113,11 +125,8 @@ public class ProductResponse {
         return equals;
     }
 
-    private boolean isEquals(double thisDouble, double comparatorDouble) {
-        return thisDouble == comparatorDouble;
-    }
-
-    private boolean isEquals(String thisString, String comparatorString) {
-        return Objects.equals(thisString, comparatorString);
+    @Override
+    public String toString() {
+        return String.format("Sku: %d | Serial: %d", getSku(), getProductSerial());
     }
 }

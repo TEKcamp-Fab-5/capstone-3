@@ -1,6 +1,5 @@
-package nventory.manager.Controller;
+package inventory.manager.Controller;
 
-import inventory.manager.Controller.ProductController;
 import inventory.manager.DAO.IProductRepository;
 import inventory.manager.Entity.Product;
 import inventory.manager.Request.ProductRequest;
@@ -19,7 +18,9 @@ public class ProductControllerTests {
     public void testUpdateProduct() {
         long productSerial = 999L;
         IProductRepository repository = Mockito.mock(IProductRepository.class);
-        when(repository.findByProductSerial(any(Long.class))).thenReturn(new Product());
+        Product testProduct = new Product();
+        testProduct.setProductSerial(productSerial);
+        when(repository.findByProductSerial(any(Long.class))).thenReturn(testProduct);
         when(repository.save(any(Product.class))).thenReturn(new Product());
         ProductRequest request = new ProductRequest();
         request.setProductSerial(productSerial);

@@ -9,29 +9,47 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productSerial;
 
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private Long sku;
 
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private String name;
 
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private double price;
 
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private String category;
 
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private int quantityInInventory;
 
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private String image;
 
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private String manufacturer;
+
+    public Product(Long sku, String name, double price, String category, int quantityInInventory, String image,
+                   String manufacturer) {
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.quantityInInventory = quantityInInventory;
+        this.image = image;
+        this.manufacturer = manufacturer;
+    }
+
+    public Product() {
+    }
 
     public Long getProductSerial() {
         return productSerial;
+    }
+
+    public void setProductSerial(long productSerial) {
+        this.productSerial = productSerial;
     }
 
     public String getName() {
@@ -88,19 +106,5 @@ public class Product {
 
     public void setSku(Long sku) {
         this.sku = sku;
-    }
-
-    public Product(Long sku, String name, double price, String category, int quantityInInventory, String image,
-                   String manufacturer) {
-        this.sku = sku;
-        this.name = name;
-        this.price = price;
-        this.category = category;
-        this.quantityInInventory = quantityInInventory;
-        this.image = image;
-        this.manufacturer = manufacturer;
-    }
-
-    public Product() {
     }
 }
