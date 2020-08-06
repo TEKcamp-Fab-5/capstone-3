@@ -2,7 +2,6 @@ package inventory.manager.Request;
 
 public class ProductRequest {
 
-    private Long productSerial;
     private Long sku;
     private String name;
     private String manufacturer;
@@ -14,8 +13,7 @@ public class ProductRequest {
     public ProductRequest() {
     }
 
-    public ProductRequest(Long productSerial, Long sku, String name, String manufacturer, String category, double price, int quantityInInventory, String image) {
-        this.productSerial = productSerial;
+    public ProductRequest(Long sku, String name, String manufacturer, String category, double price, int quantityInInventory, String image) {
         this.sku = sku;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -23,14 +21,6 @@ public class ProductRequest {
         this.price = price;
         this.quantityInInventory = quantityInInventory;
         this.image = image;
-    }
-
-    public Long getProductSerial() {
-        return productSerial;
-    }
-
-    public void setProductSerial(Long productSerial) {
-        this.productSerial = productSerial;
     }
 
     public Long getSku() {
