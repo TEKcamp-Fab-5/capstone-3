@@ -147,20 +147,22 @@ export default function Navbar(props) {
                                     badgeContent={handleCartTotalQuantity()}
                                     color="secondary"
                                 >
-                                    <ShoppingCartIcon />
+                                    <ShoppingCartIcon color="default" />
                                 </Badge>
                             </IconButton>
                         </Link>
 
-                        <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
+                        <Link to="/login" className="navbarLink">
+                            <IconButton
+                                edge="end"
+                                aria-label="account of current user"
+                                aria-controls={menuId}
+                                aria-haspopup="true"
+                                color="default"
+                            >
+                                <AccountCircle color="default" />
+                            </IconButton>
+                        </Link>
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
