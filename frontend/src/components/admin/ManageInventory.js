@@ -24,56 +24,45 @@ export default function ManageInventory(props) {
     const handleExistingProduct = newProduct => {
         for (let product of products) {
             if (
-                product.productSerial &&
-                newProduct.productSerial &&
-                newProduct.productSerial === product.productSerial
+                product.sku &&
+                newProduct.sku &&
+                newProduct.sku === product.sku
             ) {
-                return true;
-            }
-
-            if (
-                product.name &&
-                newProduct.name &&
-                newProduct.name === product.name
-            ) {
-                return true;
+                return product;
             }
         }
-        return false;
+        return null;
     };
 
     const handleAddNewProduct = e => {
         e.preventDefault();
-        newProduct.productSerial = parseFloat(newProduct.productSerial);
-        newProduct.price = parseFloat(newProduct.price);
-        newProduct.quantityInInventory = parseFloat(
-            newProduct.quantityInInventory
-        );
-        newProduct.sku = parseFloat(newProduct.sku);
-        newProduct.name = newProduct.name.replace(/ /g, "-").toLowerCase();
-        newProduct.image = "default-image";
-        setProducts([...products, newProduct]);
-
-        console.log(newProduct);
+        newProduct.sku=parseFloat(newProduct.sku);
 
         const productExists = handleExistingProduct(newProduct);
-        console.log(handleExistingProduct(newProduct));
-        if (productExists) {
-            // if (newProduct.quantityInInventory) {
-            //     if (newProduct.quantityInInventory == 0) {
-            //         newProduct.quantityInInventory = 0;
-            //     } else {
-            //         newProduct.quantityInInventory += e.target.value;
-            //     }
-            // }
-            BoutiqueDataService.updateProduct(newProduct)
+        if (productExists!=null) {
+            productExists.quantityInInventory=productExists.quantityInInventory+parseFloat(newProduct.quantityInInventory);
+            BoutiqueDataService.updateProduct(productExists)
                 .then(res => {
                     console.log(res, "updated product");
+                    refreshPage();
                 })
                 .catch(error => {
                     console.log(error);
                 });
+
         } else {
+            newProduct.productSerial = parseFloat(newProduct.productSerial);
+            newProduct.price = parseFloat(newProduct.price);
+            newProduct.quantityInInventory = parseFloat(
+                newProduct.quantityInInventory
+            );
+            newProduct.sku = parseFloat(newProduct.sku);
+            newProduct.name = newProduct.name.replace(/ /g, "-").toLowerCase();
+            newProduct.image = "default-image";
+            setProducts([...products, newProduct]);
+
+            console.log(newProduct);
+
             BoutiqueDataService.addNewProduct(newProduct)
                 .then(res => {
                     console.log(res, "added product");
@@ -83,6 +72,9 @@ export default function ManageInventory(props) {
                 });
         }
     };
+    function refreshPage() {
+        window.location.reload(false);
+    }
 
     return (
         <div className="container">
