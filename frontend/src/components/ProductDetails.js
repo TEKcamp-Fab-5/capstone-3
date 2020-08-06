@@ -21,9 +21,11 @@ export default function ProductDetails(props) {
                         products={products}
                     />
                     <div className="info">
-                        <p>Serial Number: {product.serialNumber}</p>
-                        <p>Manufacturer: {product.manufacturer}</p>
-                        <p>Category: {product.category}</p>
+                        <p>SKU Number: {product.sku}</p>
+                        <p>Description: {product.description}</p>
+                        <p>
+                            Quantity in Inventory: {product.quantityInInventory}
+                        </p>
                     </div>
 
                     <Button
