@@ -8,7 +8,7 @@ export default function InventoryView(props) {
         return (
             <div>
                 <tr>
-                    <td>{product.name}</td>
+                    <td>{product.name.replace(/-/g, " ")}</td>
                 </tr>
             </div>
         );

@@ -59,6 +59,13 @@ export default function ManageInventory(props) {
         const productExists = handleExistingProduct(newProduct);
         console.log(handleExistingProduct(newProduct));
         if (productExists) {
+            // if (newProduct.quantityInInventory) {
+            //     if (newProduct.quantityInInventory == 0) {
+            //         newProduct.quantityInInventory = 0;
+            //     } else {
+            //         newProduct.quantityInInventory += e.target.value;
+            //     }
+            // }
             BoutiqueDataService.updateProduct(newProduct)
                 .then(res => {
                     console.log(res, "updated product");
