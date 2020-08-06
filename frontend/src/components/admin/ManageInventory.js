@@ -90,44 +90,50 @@ export default function ManageInventory(props) {
                 <FormGroup className="formGroup">
                     <Paper className="inventoryPaper" elevation={3}>
                         <TextField
+                            fullWidth={true}
                             label="Product Name"
                             name="name"
                             onChange={formOnChange}
                         />
                         <br />
-                        <TextField label="Description" name="description" />
+                        <TextField fullWidth={true} label="Description" name="description" onChange={formOnChange}/>
                         <br />
                         <TextField
+                            fullWidth={true}
                             label="Manufacturer"
                             name="manufacturer"
                             onChange={formOnChange}
                         />
+                        {/*<br />*/}
+                        {/*<TextField*/}
+                        {/*    label="Serial Number"*/}
+                        {/*    name="productSerial"*/}
+                        {/*    onChange={formOnChange}*/}
+                        {/*/>*/}
                         <br />
                         <TextField
-                            label="Serial Number"
-                            name="productSerial"
-                            onChange={formOnChange}
-                        />
-                        <br />
-                        <TextField
-                            label="SkuNumber"
+                            fullWidth={true}
+                            label="Sku Number"
                             name="sku"
                             onChange={formOnChange}
                         />
                         <br />
                         <TextField
+                            fullWidth={true}
                             label="Price"
                             name="price"
                             onChange={formOnChange}
                         />
                         <br />
                         <TextField
+                            fullWidth={true}
                             label="Category"
                             name="category"
                             onChange={formOnChange}
                         />
                         <br />
                         <TextField
+                            fullWidth={true}
                             label="Quantity"
                             name="quantityInInventory"
                             onChange={formOnChange}

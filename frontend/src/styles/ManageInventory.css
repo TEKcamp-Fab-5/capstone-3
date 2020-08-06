@@ -11,13 +11,18 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
+
 }
 
 .formGroup {
     margin: auto;
     padding: 2rem;
+
 }
 
 .inventoryPaper {
-    padding: 2rem;
+    padding: 2rem 5rem;
+    width: 25rem;
 }
+
+
