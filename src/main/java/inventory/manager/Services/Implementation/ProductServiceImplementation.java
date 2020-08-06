@@ -70,9 +70,13 @@ public class ProductServiceImplementation implements IProductService {
             queriedProductDTO.setImage(productRequest.getImage());
         }
 
-        ProductDTO returnValue = new ProductDTO();
-        BeanUtils.copyProperties(queriedProductDTO, returnValue);
+        Product productToSave = new Product();
+        BeanUtils.copyProperties(queriedProductDTO, productToSave);
 
-        return returnValue;
+        Product savedProduct = productRepository.save(productToSave);
+        ProductDTO updatedProduct = new ProductDTO();
+        BeanUtils.copyProperties(savedProduct, updatedProduct);
+
+        return updatedProduct;
     }
 }

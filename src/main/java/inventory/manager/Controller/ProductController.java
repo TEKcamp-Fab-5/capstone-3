@@ -72,12 +72,8 @@ public class ProductController {
         BeanUtils.copyProperties(queriedProduct, queriedProductDTO);
 
         ProductDTO updatedProduct = iProductService.updateProduct(productRequest, queriedProductDTO);
-        BeanUtils.copyProperties(updatedProduct, queriedProduct);
-
-        Product tempProductDetails = iProductRepository.save(queriedProduct);
-
         ProductResponse returnValue = new ProductResponse();
-        BeanUtils.copyProperties(tempProductDetails, returnValue);
+        BeanUtils.copyProperties(updatedProduct, returnValue);
 
         return returnValue;
     }
