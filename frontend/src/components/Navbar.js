@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -14,6 +14,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import "../styles/Navbar.css";
+
+import AuthenticationService from "../components/admin/AuthenticationService";
 
 const useStyles = makeStyles(theme => ({
     grow: {
@@ -90,6 +92,8 @@ export default function Navbar(props) {
 
     const classes = useStyles();
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     const menuId = "primary-search-account-menu";
     const renderMenu = (
         <Menu
@@ -102,6 +106,13 @@ export default function Navbar(props) {
             <MenuItem>My account</MenuItem>
         </Menu>
     );
+
+    const handleLogin = () => {
+        setIsLoggedIn(true);
+    };
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+    };
 
     return (
         <div className={classes.grow}>
@@ -151,18 +162,34 @@ export default function Navbar(props) {
                                 </Badge>
                             </IconButton>
                         </Link>
-
-                        <Link to="/login" className="navbarLink">
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-controls={menuId}
-                                aria-haspopup="true"
-                                color="default"
-                            >
-                                <AccountCircle color="default" />
-                            </IconButton>
-                        </Link>
+                        {isLoggedIn && (
+                            <Link to="/login" className="navbarLink">
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="default"
+                                    onClick={handleLogout}
+                                >
+                                    <AccountCircle color="default" />
+                                </IconButton>
+                            </Link>
+                        )}
+                        {!isLoggedIn && (
+                            <Link to="/logout" className="navbarLink">
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="default"
+                                    onClick={handleLogin}
+                                >
+                                    <AccountCircle color="default" />
+                                </IconButton>
+                            </Link>
+                        )}
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton

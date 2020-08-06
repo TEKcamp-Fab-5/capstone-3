@@ -95,7 +95,11 @@ export default function ManageInventory(props) {
                             onChange={formOnChange}
                         />
                         <br />
-                        <TextField label="Description" name="description" />
+                        <TextField
+                            label="Description"
+                            name="description"
+                            onChange={formOnChange}
+                        />
                         <br />
                         <TextField
                             label="Manufacturer"
