@@ -66,8 +66,7 @@ public class ProductController {
 
     @PutMapping(path = "/updateProduct")
     public ProductResponse updateProduct(@RequestBody ProductRequest productRequest) {
-        //
-        //
+
         Product queriedProduct = iProductService.getProductBySerial(productRequest.getProductSerial());
 
         ProductDTO queriedProductDTO = new ProductDTO();
@@ -86,14 +85,10 @@ public class ProductController {
 
     @DeleteMapping(path = "/deleteProduct")
     public void deleteProduct(@RequestBody ProductRequest productRequest) {
-        //
-        //
 
         Product queriedProduct = iProductService.getProductBySerial(productRequest.getProductSerial());
-        //
 
         iProductRepository.delete(queriedProduct);
-        //
     }
 
 

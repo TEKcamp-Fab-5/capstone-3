@@ -30,6 +30,10 @@ public class Product {
 //    @Column(nullable = false)
     private String manufacturer;
 
+    //    @Column(nullable = false)
+    private String description;
+
+
     public Long getProductSerial() {
         return productSerial;
     }
@@ -88,6 +92,14 @@ public class Product {
 
     public void setSku(Long sku) {
         this.sku = sku;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Product(Long sku, String name, double price, String category, int quantityInInventory, String image,

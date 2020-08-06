@@ -9,11 +9,12 @@ public class ProductResponse {
     private double price;
     private int quantityInInventory;
     private String image;
+    private String description;
 
     public ProductResponse() {
     }
 
-    public ProductResponse(Long sku, String name, String manufacturer, String category, double price, int quantityInInventory, String image) {
+    public ProductResponse( Long sku, String name, String manufacturer, String category, double price, int quantityInInventory, String image) {
         this.sku = sku;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -77,5 +78,13 @@ public class ProductResponse {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

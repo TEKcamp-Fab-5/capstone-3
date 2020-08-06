@@ -10,6 +10,7 @@ public class ProductDTO {
     private double price;
     private int quantityInInventory;
     private String image;
+    private String description;
 
     public ProductDTO() {
     }
@@ -87,5 +88,13 @@ public class ProductDTO {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

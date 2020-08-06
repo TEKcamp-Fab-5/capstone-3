@@ -18,5 +18,4 @@ public interface IProductService {
 
     ProductDTO updateProduct(ProductRequest productRequest, ProductDTO queriedProductDTO);
 
-
 }
