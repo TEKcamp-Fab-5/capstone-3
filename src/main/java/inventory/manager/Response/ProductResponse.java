@@ -118,6 +118,6 @@ public class ProductResponse {
     }
 
     private boolean isEquals(String thisString, String comparatorString) {
-        return thisString.equals(comparatorString);
+        return Objects.equals(thisString, comparatorString);
     }
 }

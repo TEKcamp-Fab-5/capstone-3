@@ -13,6 +13,7 @@ public class ProductServiceImplementationTests {
     public void testUpdateProduct_quantityIncrements() {
         ProductDTO queriedProductDTO = new ProductDTO();
         IProductRepository repository = Mockito.mock(IProductRepository.class);
+//        when().thenReturn();
         ProductRequest productRequest = new ProductRequest();
         ProductServiceImplementation service = new ProductServiceImplementation(repository);
         int expected = 3;
