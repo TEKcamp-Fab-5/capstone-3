@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
+import { TextField, Button } from "@material-ui/core";
+
+import "../../styles/Login.css";
 
 export default function Login(props) {
     const [usernamePassword, setUsernamePassword] = useState({});
@@ -33,24 +36,34 @@ export default function Login(props) {
         }
     };
     return (
-        <div>
-            <h1>Login</h1>
-            <div className="container">
-                {hasLoginFailed && (
-                    <div className="alert alert-warning">
-                        Invalid Credentials
+        <div className="loginMain">
+            <div className="loginContainer">
+                <Paper className="loginPaper">
+                    {hasLoginFailed && <div>Invalid Credentials</div>}
+                    {showSuccessMessage && <div>Login Successful</div>}
+                    <div className="loginForm">
+                        <TextField
+                            type="text"
+                            name="username"
+                            label="username"
+                            onChange={handleLoginForm}
+                        />
+                        <TextField
+                            type="password"
+                            name="password"
+                            label="password"
+                            onChange={handleLoginForm}
+                        />
                     </div>
-                )}
-                {showSuccessMessage && <div>Login Successful</div>}
-                User Name:{" "}
-                <input type="text" name="username" onChange={handleLoginForm} />
-                Password:{" "}
-                <input
-                    type="password"
-                    name="password"
-                    onChange={handleLoginForm}
-                />
-                <button onClick={handleLogin}>Login</button>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        style={{ marginTop: "2rem" }}
+                        onClick={handleLogin}
+                    >
+                        Login
+                    </Button>
+                </Paper>
             </div>
         </div>
     );
