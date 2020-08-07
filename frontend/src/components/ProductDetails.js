@@ -8,6 +8,14 @@ export default function ProductDetails(props) {
 
     const { name } = match.params;
 
+    const productDescription = (description) =>{
+        if ( description !== "" || description!=null ){
+            return description;
+        } else {
+            return null;
+        }
+    }
+
     // productDetails: dynamically displays the corresponding products with the
     // products details: name, serial number, category and a button to add that
     // specific product to the cart
@@ -22,7 +30,11 @@ export default function ProductDetails(props) {
                     />
                     <div className="info">
                         <p>SKU Number: {product.sku}</p>
-                        <p>Description: {product.description}</p>
+                        <p>
+                            {productDescription(product.description)}
+
+                        </p>
+                        {/*<p>{product.description}</p>*/}
                         <p>
                             Quantity in Inventory: {product.quantityInInventory}
                         </p>

@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
+
 import "../../styles/ManageInventory.css";
 
 import BoutiqueDataService from "../../api/BoutiqueDataService";
@@ -40,7 +41,27 @@ export default function ManageInventory(props) {
 
         const productExists = handleExistingProduct(newProduct);
         if (productExists!=null) {
-            productExists.quantityInInventory=productExists.quantityInInventory+parseFloat(newProduct.quantityInInventory);
+
+            if (newProduct.name!==(""||null)) {
+                productExists.name = newProduct.name;
+            }
+
+            if (newProduct.description!==(""||null)) {
+                productExists.description = newProduct.description;
+            }
+            
+            if (newProduct.manufacturer!==(""||null)) {
+                productExists.manufacturer = newProduct.manufacturer;
+            }
+
+            if (parseFloat(newProduct.price)!==(0||null)) {
+                productExists.price=parseFloat(newProduct.price)
+            }
+
+            if (parseInt(newProduct.quantityInInventory)!==(0||null)) {
+                productExists.quantityInInventory = parseInt(newProduct.quantityInInventory);
+            }
+
             BoutiqueDataService.updateProduct(productExists)
                 .then(res => {
                     console.log(res, "updated product");
@@ -51,30 +72,41 @@ export default function ManageInventory(props) {
                 });
 
         } else {
-            newProduct.productSerial = parseFloat(newProduct.productSerial);
+            newProduct.name = newProduct.name.replace(/ /g, "-").toLowerCase();
+            // newProduct.productSerial = parseFloat(newProduct.productSerial);
             newProduct.price = parseFloat(newProduct.price);
             newProduct.quantityInInventory = parseFloat(
                 newProduct.quantityInInventory
             );
             newProduct.sku = parseFloat(newProduct.sku);
-            newProduct.name = newProduct.name.replace(/ /g, "-").toLowerCase();
+
             newProduct.image = "default-image";
-            setProducts([...products, newProduct]);
 
             console.log(newProduct);
 
-            BoutiqueDataService.addNewProduct(newProduct)
-                .then(res => {
-                    console.log(res, "added product");
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            if(
+                // parseFloat(newProduct.productSerial)!==(null||0) &&
+                newProduct.name !== "" && newProduct.description !== "" && newProduct.manufacturer !== "" && parseInt(newProduct.sku) !== 0 && parseInt(newProduct.sku)<100000
+                && parseFloat(newProduct.price) !== 0 && newProduct.category !== "" && parseInt(newProduct.quantityInInventory) !== 0
+            ) {
+                BoutiqueDataService.addNewProduct(newProduct)
+                    .then(res => {
+                        console.log(res, "added product");
+                        setProducts([...products, newProduct]);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            } else{
+                console.log("Error: Fields not complete")
+            }
         }
     };
     function refreshPage() {
         window.location.reload(false);
     }
+
+
 
     return (
         <div className="container">
@@ -88,7 +120,12 @@ export default function ManageInventory(props) {
                             onChange={formOnChange}
                         />
                         <br />
-                        <TextField fullWidth={true} label="Description" name="description" onChange={formOnChange}/>
+                        <TextField
+                            fullWidth={true}
+                            label="Description"
+                            name="description"
+                            onChange={formOnChange}
+                        />
                         <br />
                         <TextField
                             fullWidth={true}
@@ -96,12 +133,6 @@ export default function ManageInventory(props) {
                             name="manufacturer"
                             onChange={formOnChange}
                         />
-                        {/*<br />*/}
-                        {/*<TextField*/}
-                        {/*    label="Serial Number"*/}
-                        {/*    name="productSerial"*/}
-                        {/*    onChange={formOnChange}*/}
-                        {/*/>*/}
                         <br />
                         <TextField
                             fullWidth={true}
@@ -152,7 +183,7 @@ export default function ManageInventory(props) {
                             onClick={handleAddNewProduct}
                             style={{ marginTop: "2rem" }}
                         >
-                            Add Product
+                            Add/Update Product
                         </Button>
                     </Paper>
                 </FormGroup>

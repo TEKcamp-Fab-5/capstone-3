@@ -6,7 +6,7 @@ export default function InventoryView(props) {
 
     const displayListOfProductSerial = products.map(product => {
         return (
-            <div>
+            <div align={"center"}>
                 <tr>
                     <td>{product.sku}</td>
                 </tr>
@@ -24,26 +24,74 @@ export default function InventoryView(props) {
         );
     });
 
+    const displayListOfProductPrice = products.map(product => {
+        return (
+            <div  align={"center"}>
+                <tr>
+                    <td>${product.price}</td>
+                </tr>
+            </div>
+        );
+    });
+
+    const displayListOfProductCategory = products.map(product => {
+        return (
+            <div align={"center"}>
+                <tr>
+                    <td>{product.category.charAt(0).toUpperCase()}</td>
+                </tr>
+            </div>
+        );
+    });
+
+    const displayListOfProductManufacturer= products.map(product => {
+        return (
+            <div  align={"center"}>
+                <tr>
+                    <td>{product.manufacturer}</td>
+                </tr>
+            </div>
+        );
+    });
+
+    const displayListOfProductDescription = products.map(product => {
+        return (
+            <div  align={"center"}>
+                <tr>
+                    <td>{product.description.slice(0,20)}...</td>
+                </tr>
+            </div>
+        );
+    });
+
     const displayListOfProductQuantity = products.map(product => {
         return (
-            <div>
+            <div align={"center"}>
                 <tr>
-                    <td>{product.quantityInInventory}</td>
+                    <td >{product.quantityInInventory}</td>
                 </tr>
             </div>
         );
     });
     return (
         <div style={{ marginTop: "5rem" }}>
-            <Paper style={{ padding: "2rem" }}>
-                <table>
+            <Paper style={{ padding: "2rem", width:"50rem" }}>
+                <table style={{width:"45rem"}}>
                     <tr>
-                        <th>Product SKU</th>
-                        <th>Product Name</th>
-                        <th>Product Quantity</th>
+                        <th>SKU</th>
+                        <th>Name</th>
+                        <th>MSRP</th>
+                        <th>CAT</th>
+                        <th>MFR</th>
+                        <th>Desc</th>
+                        <th>QTY</th>
                     </tr>
                     <td>{displayListOfProductSerial}</td>
                     <td>{displayListOfProductName}</td>
+                    <td>{displayListOfProductPrice}</td>
+                    <td>{displayListOfProductCategory}</td>
+                    <td>{displayListOfProductManufacturer}</td>
+                    <td>{displayListOfProductDescription}</td>
                     <td>{displayListOfProductQuantity}</td>
                 </table>
             </Paper>
