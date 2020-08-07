@@ -49,9 +49,13 @@ export default function ManageInventory(props) {
             if (newProduct.description!==(""||null)) {
                 productExists.description = newProduct.description;
             }
-            
+
             if (newProduct.manufacturer!==(""||null)) {
                 productExists.manufacturer = newProduct.manufacturer;
+            }
+
+            if (newProduct.category!==(""||null)){
+                productExists.category = newProduct.category;
             }
 
             if (parseFloat(newProduct.price)!==(0||null)) {
